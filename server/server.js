@@ -3,6 +3,7 @@ const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
 
+
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
@@ -13,7 +14,10 @@ const server = new ApolloServer({
   resolvers,
   context: authMiddleware,
 });
-
+// <img src='localhost:3001/public/image1.jpg/> '
+// <img src={pet.image}/> '
+// localhost:3001/public/image1.jpg
+app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 

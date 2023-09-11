@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Jack",
+    "coatLength":"Short",
+    "houseTrained": "Yes",
+    "healt":"Vaccinations up to date",
+    "goodInAHomeWith":"Children, other dogs and cats",
+    "image": "/public/Image1.jpg",
+    "advatar": "https://unsplash.com/photos/brFsZ7qszSY"
+    
+  },
+  {
+    "name": "Miky",
+    "coatLength":"Long",
+    "houseTrained": "Yes",
+    "healt":"Vaccinations up to date",
+    "goodInAHomeWith":"Children, other dogs and cats",
+    "image": "/public/Image2.jpg",
+    "advatar": "https://unsplash.com/photos/5Vr_RVPfbMI"
+    
+  },
+  {
+    "name": "Charles",
+    "coatLength":"Short",
+    "houseTrained": "Yes",
+    "healt":"Vaccinations up to date, Wears glasses",
+    "goodInAHomeWith":"Children, other dogs and cats",
+    "image": "/public/Image3.jpg",
+    "advatar": "https://unsplash.com/photos/pOUA8Xay514"
+    
+  },
+  {
+    "name": "Flouffy",
+    "coatLength":"Long",
+    "houseTrained": "Yes",
+    "healt":"Vaccinations up to date",
+    "goodInAHomeWith":"Children, other dogs and cats",
+    "image": "/public/Image4.jpg",
+    "advatar": "https://unsplash.com/photos/qEO5MpLyOks"
+    
+  }
+]
+  

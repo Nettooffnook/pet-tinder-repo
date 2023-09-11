@@ -1,28 +1,19 @@
-const { Tech, Matchup } = require('../models');
+const { User, Pet } = require("../models");
 
 const resolvers = {
   Query: {
-    tech: async () => {
-      return Tech.find({});
-    },
-    matchups: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Matchup.find(params);
-    },
+    users: async (parent, args, context) => {},
+    pets: async (parent, args, context) => {},
+    findPetByBreed: async (parent, args, context) => {},
+    findPetByName: async (parent, args, context) => {},
+    findPetById: async (parent, args, context) => {},
   },
   Mutation: {
-    createMatchup: async (parent, args) => {
-      const matchup = await Matchup.create(args);
-      return matchup;
-    },
-    createVote: async (parent, { _id, techNum }) => {
-      const vote = await Matchup.findOneAndUpdate(
-        { _id },
-        { $inc: { [`tech${techNum}_votes`]: 1 } },
-        { new: true }
-      );
-      return vote;
-    },
+    addUser: async (parent, args) => {},
+    login: async (parent, args, ) => {},
+    likePet: async (parent, args, context) => {},
+    dislikePet: async (parent, args, context) => {},
+    updateUser: async (parent, args, context) => {},
   },
 };
 

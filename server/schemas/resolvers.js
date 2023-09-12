@@ -9,6 +9,9 @@ const resolvers = {
     pets: async () => {
       return await Pet.find({});
     },
+    matches:async()=>{
+      return await User.find({_id}).populate("pets")
+    }
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -18,20 +21,20 @@ const resolvers = {
       return await Pet.create(args);
     },
     petLikes: async (parent, { petLikes }) => {
-      await User.findOne({ petLikes });
-      return
+      const pLikes = await User.findOneAndUpdate({ petLikes });
+      return pLikes
     },
     petDislikes: async (parent, { petDislikes }) => {
-      await User.findOne({ petDislikes });
-      return
+      const pDislikes = await User.findOneAndUpdate({ petDislikes });
+      return pDislikes
     },
     userLikes: async (parent, { userLikes }) => {
-      await Pet.findOne({ userLikes });
-      return
+      const uLikes = await Pet.findOneAndUpdate({ userLikes });
+      return uLikes
     },
     userDislikes: async (parent, { userDislikes }) => {
-      await Pet.findOne({ userDislikes });
-      return
+     const uDislikes = await Pet.findOneAndUpdate({ userDislikes });
+      return uDislikes
     },
   },
 };

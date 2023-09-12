@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
-const Order = require("./Order");
+// const Order = require("./Order");
 
 // const userId =
 // const petId =
@@ -16,9 +16,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    validate: {
-      length: [6, "Password must be at least 6 characters long"],
-    },
+    minLength: 6
   },
 
   email: {

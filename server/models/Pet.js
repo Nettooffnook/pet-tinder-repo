@@ -10,7 +10,7 @@ const petSchema = new Schema({
   },
 
   picture: {
-    type: String,
+    type: Image,
   },
   breed: {
     type: String,

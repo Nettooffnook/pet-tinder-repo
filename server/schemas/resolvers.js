@@ -1,19 +1,38 @@
 const { User, Pet } = require("../models");
 
+
 const resolvers = {
   Query: {
-    users: async (parent, args, context) => {},
-    pets: async (parent, args, context) => {},
-    findPetByBreed: async (parent, args, context) => {},
-    findPetByName: async (parent, args, context) => {},
-    findPetById: async (parent, args, context) => {},
+    users: async () => {
+      return await User.find({});
+    },
+    pets: async () => {
+      return await Pet.find({});
+    },
   },
   Mutation: {
-    addUser: async (parent, args) => {},
-    login: async (parent, args, ) => {},
-    likePet: async (parent, args, context) => {},
-    dislikePet: async (parent, args, context) => {},
-    updateUser: async (parent, args, context) => {},
+    addUser: async (parent, args) => {
+      return await User.create(args);
+    },
+    addPet: async (parent, args) => {
+      return await Pet.create(args);
+    },
+    petLikes: async (parent, { petLikes }) => {
+      await User.findOne({ petLikes });
+      return
+    },
+    petDislikes: async (parent, { petDislikes }) => {
+      await User.findOne({ petDislikes });
+      return
+    },
+    userLikes: async (parent, { userLikes }) => {
+      await Pet.findOne({ userLikes });
+      return
+    },
+    userDislikes: async (parent, { userDislikes }) => {
+      await Pet.findOne({ userDislikes });
+      return
+    },
   },
 };
 

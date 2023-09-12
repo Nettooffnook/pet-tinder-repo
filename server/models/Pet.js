@@ -8,9 +8,8 @@ const petSchema = new Schema({
     required: true,
     trim: true
   },
-
   picture: {
-    type: Image,
+    type: String,
   },
   breed: {
     type: String,

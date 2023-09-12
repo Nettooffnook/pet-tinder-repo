@@ -26,10 +26,10 @@ type Pet{
   matches: [User]
 }
 
-# type Match {
-#   userID: String
-#   petId: String
-# }
+type Match {
+  userID: String
+   petId: String
+ }
 
 type Auth{
   token: ID!
@@ -42,15 +42,18 @@ type Query{
   findPetByBreed(breed: String!): [Pet]
   findPetByName(name: String!): [Pet]
   findPetById(_id: ID!): Pet
-  # findMatches: [Match]
+  matches: [Match]
 }
 
 type Mutation{
-addUser(): Auth
-login(): Auth
-updateUser(): User
-likePet(): User
-dislikePet(): User
+addUser: Auth
+login: Auth
+updateUser: User
+petLikes: User
+petDislikes: User
+addPet: Pet
+userLikes: User
+userDislikes: User
 }
 `;
 

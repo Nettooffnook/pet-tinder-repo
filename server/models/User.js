@@ -40,10 +40,9 @@ const userSchema = new Schema({
     },
   ],
 
-  address: {
-    type: String,
-    required: true,
-    trim: true,
+  contactCel: {
+    type: Number,
+    required: true
   },
   city: {
     type: String,

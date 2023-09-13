@@ -14,9 +14,6 @@ const server = new ApolloServer({
   resolvers,
   context: authMiddleware,
 });
-// <img src='localhost:3001/public/image1.jpg/> '
-// <img src={pet.image}/> '
-// localhost:3001/public/image1.jpg
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

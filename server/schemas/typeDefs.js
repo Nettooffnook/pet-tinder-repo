@@ -7,12 +7,11 @@ type User{
   email: String!
   petLikes: [Pet]
   petDislikes: [Pet]
-  address: String!
-  city: String!
+  numberCel: String!
   state: String!
   reasonsToGetPet: String!
   age: Int!
-  gender: String
+  gender: String!
 }
 
 type Pet{
@@ -20,7 +19,7 @@ type Pet{
   name: String
   picture: String
   breed: String
-  owner: User
+  owner: [User]
   userLikes: [User]
   userDislikes: [User]
   matches: [User]
@@ -33,22 +32,18 @@ type Match {
 
 type Auth{
   token: ID!
-  user: User
+  user: [User]
 }
 
 type Query{
   users: [User]
   pets: [Pet]
-  findPetByBreed(breed: String!): [Pet]
-  findPetByName(name: String!): [Pet]
-  findPetById(_id: ID!): Pet
   matches: [Match]
 }
 
 type Mutation{
 addUser: Auth
 login: Auth
-updateUser: User
 petLikes: User
 petDislikes: User
 addPet: Pet

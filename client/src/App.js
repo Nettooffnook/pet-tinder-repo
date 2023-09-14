@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import Home from './Home';
-import Home2 from './Home2';
-import UserPage from './UserPage';
+import Home from './pages/Home';
+import Home2 from './pages/Home2';
+import UserPage from './utils/UserPage';
 import Advanced from './Advanced';
 import Matchup from './pages/Matchup';
 import Vote from './pages/Vote';
@@ -40,6 +40,18 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
+  );
+}
+
+// src/App.js
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Advanced} />
+        <Route exact path="/users" component={UserPage} />
+      </Switch>
+    </Router>
   );
 }
 

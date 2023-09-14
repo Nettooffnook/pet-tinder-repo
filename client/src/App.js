@@ -43,4 +43,16 @@ function App() {
   );
 }
 
+// src/App.js
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Advanced} />
+        <Route exact path="/users" component={UserPage} />
+      </Switch>
+    </Router>
+  );
+}
+
 export default App;

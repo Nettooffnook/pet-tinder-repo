@@ -1,0 +1,30 @@
+/* src/UserPage.css */
+.table-title {
+    text-align: center;
+    font-family:cursive;
+}
+.custom-table {
+    /* Add your custom styles here */
+    border: 1px solid #000000;
+    border-radius: 4px;
+    padding: 16px;
+  }
+  .custom-table tr {
+    background-color: rgb(202, 229, 255);
+    font-weight: bold;
+    padding: 12px;
+  }
+  
+  .custom-table th {
+    background-color: #433e485c;
+    font-weight: bold;
+    padding: 12px;
+  }
+  
+  .custom-table td {
+    padding: 12px;
+  }
+  
+  .custom-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+  }

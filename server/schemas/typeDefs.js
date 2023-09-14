@@ -1,5 +1,7 @@
 const { gql } = require("apollo-server-express");
 
+// localhosthost:3001/graphql
+
 const typeDefs = gql`
 type User{
   _id: ID!

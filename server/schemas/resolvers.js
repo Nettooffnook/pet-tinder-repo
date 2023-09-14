@@ -2,6 +2,7 @@ const { User, Pet } = require("../models");
 
 
 const resolvers = {
+  // GET REQUESTS
   Query: {
     users: async () => {
       return await User.find({});
@@ -13,6 +14,7 @@ const resolvers = {
       return await User.find({ _id }).populate("pets")
     }
   },
+  // ADD, UPDATE, DELETE LIKE POST, PUT, AND DELETE REQUESTS FOR RESTFUL API
   Mutation: {
     addUser: async (parent, args) => {
       const createUser = await User.create(args);
@@ -22,6 +24,8 @@ const resolvers = {
       const createPet = await Pet.create(args);
       return createPet
     },
+
+    // object destructuring in javascript
     login: async (parent, { email, password }) => {
       const profile = await User.findOne({ email });
 

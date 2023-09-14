@@ -1,10 +1,18 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_TECH = gql`
-  query tech {
-    tech {
+export const QUERY_USER = gql`
+  query user {
+    user {
       _id
-      name
+      username
+      email
+      petLikes
+      petDislikes
+      numberCel
+      state
+      reasonsToGetPet
+      age
+      gender
     }
   }
 `;
@@ -13,10 +21,11 @@ export const QUERY_MATCHUPS = gql`
   query matchups($_id: String) {
     matchups(_id: $_id) {
       _id
-      tech1
-      tech2
-      tech1_votes
-      tech2_votes
+      user1
+      user2
+      user1_pet
+      user2_pet
+    
     }
   }
 `;

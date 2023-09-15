@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useMutation, useQuery } from '@apollo/client';
-import { QUERY_USER } from '../utils/queries';
-import { CREATE_MATCHUP } from '../utils/mutations';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useMutation, useQuery } from "@apollo/client";
+import { QUERY_PETS } from "../utils/queries";
+import { CREATE_MATCHUP } from "../utils/mutations";
 
 const Matchup = () => {
-  const { loading, data } = useQuery(QUERY_USER);
+  const { loading, data } = useQuery(QUERY_PETS);
 
-  const userList = data?.user || [];
+  const userList = data?.pets || [];
 
   const [formData, setFormData] = useState({
-    user1: 'JavaScript',
-    user2: 'JavaScript',
+    user1: "JavaScript",
+    user2: "JavaScript",
   });
   let navigate = useNavigate();
 
@@ -26,18 +26,18 @@ const Matchup = () => {
     event.preventDefault();
 
     try {
-      const { data } = await createMatchup({
-        variables: { ...formData },
-      });
-
-      navigate(`/matchup/${data.createMatchup._id}`);
+      // NOT WORKING!!!!!!!!
+      // const { data } = await createMatchup({
+      //   variables: { ...formData },
+      // });
+      // navigate(`/matchup/${data.createMatchup._id}`);
     } catch (err) {
       console.error(err);
     }
 
     setFormData({
-      user1: 'JavaScript',
-      user2: 'JavaScript',
+      user1: "JavaScript",
+      user2: "JavaScript",
     });
   };
 

@@ -1,9 +1,9 @@
 import { useQuery, useMutation } from '@apollo/client';
 import { useParams, Link } from 'react-router-dom';
-import { CREATE_VOTE } from '../utils/mutations';
+import { CREATE_PET } from '../utils/mutations';
 import { QUERY_MATCHUPS } from '../utils/queries';
 
-const Vote = () => {
+const Pet = () => {
   let { id } = useParams();
 
   const { loading, data } = useQuery(QUERY_MATCHUPS, {
@@ -12,12 +12,12 @@ const Vote = () => {
 
   const matchup = data?.matchups || [];
 
-  const [createVote, { error }] = useMutation(CREATE_VOTE);
+  const [createPet, { error }] = useMutation(CREATE_PET);
 
-  const handleVote = async (techNum) => {
+  const handlePet = async (userNum) => {
     try {
-      await createVote({
-        variables: { _id: id, techNum: techNum },
+      await createPet({
+        variables: { _id: id, userNum: userNum },
       });
     } catch (err) {
       console.error(err);
@@ -34,16 +34,16 @@ const Vote = () => {
       ) : (
         <div className="card-body text-center mt-3">
           <h2>
-            {matchup[0].tech1} vs. {matchup[0].tech2}
+            {matchup[0].user1} vs. {matchup[0].user2}
           </h2>
           <h3>
-            {matchup[0].tech1_votes} : {matchup[0].tech2_votes}
+            {matchup[0].user1_pets} : {matchup[0].user2_pets}
           </h3>
-          <button className="btn btn-info" onClick={() => handleVote(1)}>
-            Vote for {matchup[0].tech1}
+          <button className="btn btn-info" onClick={() => handlePet(1)}>
+            Pet for {matchup[0].user1}
           </button>{' '}
-          <button className="btn btn-info" onClick={() => handleVote(2)}>
-            Vote for {matchup[0].tech2}
+          <button className="btn btn-info" onClick={() => handlePet(2)}>
+            Pet for {matchup[0].user2}
           </button>
           <div className="card-footer text-center m-3">
             <br></br>
@@ -60,4 +60,4 @@ const Vote = () => {
   );
 };
 
-export default Vote;
+export default Pet;

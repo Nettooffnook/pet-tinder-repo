@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
   query user {
@@ -19,21 +19,20 @@ export const QUERY_USER = gql`
 
 export const QUERY_PETS = gql`
   query Pets {
-    _id
-    name
-    picture
-    breed
-    owner
-    userLikes
-    userDislikes
+    pets {
+      _id
+      name
+      picture
+      breed
+    }
   }
 `;
 
-export const QUERY_MATCHUPS= gql `
-query Match($_id: String){
-  Match (_id: $_id){
-    userId
-    petId
+export const QUERY_MATCHUPS = gql`
+  query Match($_id: String) {
+    Match(_id: $_id) {
+      userId
+      petId
+    }
   }
-}
-`
+`;

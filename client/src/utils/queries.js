@@ -1,6 +1,23 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_USER = gql`
+  query user {
+    user {
+      _id
+      username
+      email
+      petLikes
+      petDislikes
+      numberCel
+      state
+      reasonsToGetPet
+      age
+      gender
+    }
+  }
+`;
+
+
   query User {
     _id:
     username

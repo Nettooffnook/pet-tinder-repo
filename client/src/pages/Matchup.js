@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
-import { QUERY_TECH } from '../utils/queries';
+import { QUERY_USER } from '../utils/queries';
 import { CREATE_MATCHUP } from '../utils/mutations';
 
 const Matchup = () => {
-  const { loading, data } = useQuery(QUERY_TECH);
+  const { loading, data } = useQuery(QUERY_USER);
 
-  const techList = data?.tech || [];
+  const userList = data?.user || [];
 
   const [formData, setFormData] = useState({
-    tech1: 'JavaScript',
-    tech2: 'JavaScript',
+    user1: 'JavaScript',
+    user2: 'JavaScript',
   });
   let navigate = useNavigate();
 
@@ -36,8 +36,8 @@ const Matchup = () => {
     }
 
     setFormData({
-      tech1: 'JavaScript',
-      tech2: 'JavaScript',
+      user1: 'JavaScript',
+      user2: 'JavaScript',
     });
   };
 
@@ -51,22 +51,22 @@ const Matchup = () => {
           <div>Loading...</div>
         ) : (
           <form onSubmit={handleFormSubmit}>
-            <label>Tech 1: </label>
-            <select name="tech1" onChange={handleInputChange}>
-              {techList.map((tech) => {
+            <label>User 1: </label>
+            <select name="user1" onChange={handleInputChange}>
+              {userList.map((user) => {
                 return (
-                  <option key={tech._id} value={tech.name}>
-                    {tech.name}
+                  <option key={user._id} value={user.name}>
+                    {user.name}
                   </option>
                 );
               })}
             </select>
-            <label>Tech 2: </label>
-            <select name="tech2" onChange={handleInputChange}>
-              {techList.map((tech) => {
+            <label>User 2: </label>
+            <select name="user2" onChange={handleInputChange}>
+              {userList.map((user) => {
                 return (
-                  <option key={tech._id} value={tech.name}>
-                    {tech.name}
+                  <option key={user._id} value={user.name}>
+                    {user.name}
                   </option>
                 );
               })}

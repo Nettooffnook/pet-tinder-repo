@@ -17,21 +17,6 @@ export const QUERY_USER = gql`
   }
 `;
 
-
-  query User {
-    _id:
-    username
-    email
-    petLikes
-    petDislikes
-    numberCel
-    state
-    reasonsToGetPet
-    age
-    gender
-  }
-`;
-
 export const QUERY_PETS = gql`
   query Pets {
     _id
@@ -44,7 +29,7 @@ export const QUERY_PETS = gql`
   }
 `;
 
-export const QUERY_MATCHES= gql `
+export const QUERY_MATCHUPS= gql `
 query Match($_id: String){
   Match (_id: $_id){
     userId

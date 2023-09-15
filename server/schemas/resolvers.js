@@ -1,4 +1,5 @@
 const { User, Pet } = require("../models");
+const {signToken} =  require ("../utils/auth")
 
 
 const resolvers = {
@@ -17,8 +18,9 @@ const resolvers = {
   // ADD, UPDATE, DELETE LIKE POST, PUT, AND DELETE REQUESTS FOR RESTFUL API
   Mutation: {
     addUser: async (parent, args) => {
-      const createUser = await User.create(args);
-      return createUser
+      const user = await User.create(args);
+      const token = signToken(user);
+      return { user, token };
     },
     addPet: async (parent, args) => {
       const createPet = await Pet.create(args);

@@ -7,13 +7,14 @@ type User{
   _id: ID!
   username: String!
   email: String!
+  password: String! 
   petLikes: [Pet]
   petDislikes: [Pet]
-  numberCel: String!
   state: String!
   reasonsToGetPet: String!
   age: Int!
   gender: String!
+  contactCel: Int!
 }
 
 type Pet{
@@ -21,7 +22,7 @@ type Pet{
   name: String
   picture: String
   breed: String
-  owner: [User]
+  owner: User
   userLikes: [User]
   userDislikes: [User]
   matches: [User]
@@ -34,7 +35,7 @@ type Match {
 
 type Auth{
   token: ID!
-  user: [User]
+  user: User
 }
 
 type Query{
@@ -44,8 +45,8 @@ type Query{
 }
 
 type Mutation{
-addUser: Auth
-login: Auth
+addUser( username: String!,  email: String!, password: String!,state: String!, gender: String!, reasonsToGetPet: String!,age: Int!,contactCel: Int! ): Auth
+login(username: String!,password: String!): Auth
 petLikes: User
 petDislikes: User
 addPet: Pet

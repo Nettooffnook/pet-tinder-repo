@@ -3,21 +3,22 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const petSchema = new Schema({
-  name: {
+  namePet: {
     type: String,
     required: true,
     trim: true
   },
-  picture: {
+  picturePet: {
     type: String,
   },
-  breed: {
+  breedPet: {
     type: String,
     required: true
   },
 
-  owner: {
+  ownerPet: {
     type: mongoose.Schema.Types.ObjectId,
+    type:String,
     ref: 'User',
   },
   userLikes: [

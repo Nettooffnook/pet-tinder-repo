@@ -1,19 +1,26 @@
 const { User, Pet } = require("../models");
 const {signToken} =  require ("../utils/auth")
+const { AuthenticationError } = require('apollo-server');
 
 
 const resolvers = {
   // GET REQUESTS
   Query: {
     users: async () => {
-      return await User.find({});
+      return await User.find();
     },
     pets: async () => {
-      return await Pet.find({});
+      return await Pet.find();
     },
     matches: async (parent, { _id }) => {
       return await User.find({ _id }).populate("pets")
-    }
+    },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate('pets');
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
   // ADD, UPDATE, DELETE LIKE POST, PUT, AND DELETE REQUESTS FOR RESTFUL API
   Mutation: {
@@ -27,22 +34,22 @@ const resolvers = {
       return createPet
     },
 
-    // object destructuring in javascript
-    login: async (parent, { email, password }) => {
-      const profile = await User.findOne({ email });
+    login: async (parent, { username, password }) => {
+      const user = await User.findOne({ username });
 
-      if (!profile) {
-        throw new AuthenticationError('No profile with this email found!');
+      if (!user) {
+        throw new AuthenticationError('No user found with this email address');
       }
 
-      const correctPw = await profile.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect password!');
+        throw new AuthenticationError('Incorrect credentials');
       }
 
-      const token = signToken(profile);
-      return { token, profile };
+      const token = signToken(user);
+
+      return { token, user };
     },
     
     petLikes: async (parent, { petLikes }) => {

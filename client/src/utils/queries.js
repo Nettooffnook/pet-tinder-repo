@@ -6,9 +6,8 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      petLikes
-      petDislikes
-      numberCel
+      password
+      contactCel
       state
       reasonsToGetPet
       age
@@ -21,11 +20,12 @@ export const QUERY_PETS = gql`
   query Pets {
     pets {
       _id
-      name
-      picture
-      breed
-    }
+      namePet
+      picturePet
+      breedPet
+      ownerPet
   }
+}
 `;
 
 export const QUERY_MATCHUPS = gql`

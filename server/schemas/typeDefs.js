@@ -8,8 +8,6 @@ type User{
   username: String!
   email: String!
   password: String! 
-  petLikes: [Pet]
-  petDislikes: [Pet]
   state: String!
   reasonsToGetPet: String!
   age: Int!
@@ -17,20 +15,20 @@ type User{
   contactCel: Int!
 }
 
+
 type Pet{
   _id: ID!
-  name: String
-  picture: String
-  breed: String
-  owner: User
-  userLikes: [User]
-  userDislikes: [User]
-  matches: [User]
+  namePet: String!
+  picturePet: String!
+  breedPet: String!
+  ownerPet: User
+
 }
 
+
 type Match {
-  userID: String
-   petId: String
+  userID: String!
+   petId: String!
  }
 
 type Auth{
@@ -40,18 +38,20 @@ type Auth{
 
 type Query{
   users: [User]
+  user(username: String!): User
   pets: [Pet]
   matches: [Match]
+  me: User
 }
 
 type Mutation{
-addUser( username: String!,  email: String!, password: String!,state: String!, gender: String!, reasonsToGetPet: String!,age: Int!,contactCel: Int! ): Auth
+addUser(username: String!,  email: String!, password: String!,state: String!, gender: String!, reasonsToGetPet: String!,age: Int!,contactCel: Int!): Auth
 login(username: String!,password: String!): Auth
-petLikes: User
-petDislikes: User
-addPet: Pet
-userLikes: User
-userDislikes: User
+addPet(namePet: String!, picturePet: String!, breedPet: String!, ownerPet: String!): User
+petLikes(username: String!): User
+petDislikes(username: String!): User
+userLikes(namePet: String!): Pet
+userDislikes(namePet: String!): Pet
 }
 `;
 

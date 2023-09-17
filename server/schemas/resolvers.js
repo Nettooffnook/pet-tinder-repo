@@ -54,7 +54,7 @@ const resolvers = {
     
     petLikes: async (parent, { petLikes }) => {
       const pLikes = await User.findOneAndUpdate(
-        { _id: id },
+        {_id: User.Id},
         {
           $addToSet: { petLikes: petLikes }
         },
@@ -64,7 +64,7 @@ const resolvers = {
     },
     petDislikes: async (parent, { petDislikes }) => {
       const pDislikes = await User.findOneAndUpdate(
-        { _id: id },
+        {_id: User.Id},
         {
           $addToSet: { petDislikes: petDislikes }
         },
@@ -74,7 +74,7 @@ const resolvers = {
     },
     userLikes: async (parent, { userLikes }) => {
       const uLikes = await Pet.findOneAndUpdate(
-        { _id: id },
+        {_id: Pet.Id},
         {
           $addToSet: { userLikes: userLikes }
         },
@@ -84,7 +84,7 @@ const resolvers = {
     },
     userDislikes: async (parent, { userDislikes }) => {
       const uDislikes = await Pet.findOneAndUpdate(
-        { _id: id },
+        {_id: Pet.Id},
         {
           $addToSet: { userDislikes: userDislikes }
         },

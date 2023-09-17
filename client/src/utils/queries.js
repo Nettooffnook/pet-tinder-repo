@@ -25,6 +25,7 @@ export const QUERY_PETS = gql`
       breedPet
       ownerPet
   }
+}
 `;
 
 export const QUERY_MATCHUPS = gql`

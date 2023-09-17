@@ -26,11 +26,10 @@ const Matchup = () => {
     event.preventDefault();
 
     try {
-      // NOT WORKING!!!!!!!!
-      // const { data } = await createMatchup({
-      //   variables: { ...formData },
-      // });
-      // navigate(`/matchup/${data.createMatchup._id}`);
+      const { data } = await createMatchup({
+        variables: { ...formData },
+      });
+      navigate(`/matchup/${data.createMatchup._id}`);
     } catch (err) {
       console.error(err);
     }

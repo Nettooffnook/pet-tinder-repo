@@ -29,10 +29,11 @@ export const QUERY_PETS = gql`
 `;
 
 export const QUERY_MATCHUPS = gql`
-  query Match($_id: String) {
-    Match(_id: $_id) {
+  query Match($userId: String, $petId: String) {
+    Match(userId: $userId, petId: $petId) {
       userId
       petId
     }
   }
 `;
+

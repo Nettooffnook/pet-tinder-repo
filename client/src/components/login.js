@@ -30,13 +30,13 @@ function Login() {
     <div>
       <h2>Iniciar Sesión</h2>
       <form onSubmit={handleSubmit}>
-      <div>
+        <div>
           <label>Email:</label>
           <input
             type="email"
             name="email"
-            value={LOGIN_USER.email}
-            onChange={LOGIN_USER}
+            value={formData.email} // Use formData.email, not LOGIN_USER.email
+            onChange={handleChange} // Use handleChange, not LOGIN_USER
             required
           />
         </div>
@@ -45,8 +45,8 @@ function Login() {
           <input
             type="password"
             name="password"
-            value={LOGIN_USER.password}
-            onChange={LOGIN_USER}
+            value={formData.password} // Use formData.password, not LOGIN_USER.password
+            onChange={handleChange} // Use handleChange, not LOGIN_USER
             required
           />
         </div>
@@ -56,4 +56,5 @@ function Login() {
   );
 }
 
-export default Login;
+export default Headers;
+

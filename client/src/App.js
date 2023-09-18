@@ -8,6 +8,7 @@ import Pet from './pages/Pet';
 import NotFound from './pages/NotFound';
 import Register from './components/Register'
 import Login from './components/login'
+import Footer from './components/Footer';
 
 import './App.css'
 import Header from './components/Header';
@@ -17,6 +18,7 @@ const client = new ApolloClient({
   uri: 'http://localhost:3001/graphql',
   cache: new InMemoryCache(),
 });
+
 
 function App() {
   return (
@@ -32,6 +34,7 @@ function App() {
             <Route path="/matchup/:id"  element={<Pet />} />
             <Route path="*" element={<NotFound />}/>
           </Routes>
+          <Footer/>
         </div>
       </Router>
     </ApolloProvider>

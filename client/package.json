@@ -9,6 +9,8 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.5.0",
     "graphql": "^15.4.0",
+    "react-bootstrap": "^2.8.0",
+    "react-icons": "^4.11.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.1"
   },

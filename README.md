@@ -38,6 +38,9 @@ no
  
 ## Features
 
+Incorporation of a chat application or just messages between the users.
+Multiple language support.
+
 ## How to Contribute
 
 
